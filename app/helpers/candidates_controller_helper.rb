@@ -1,0 +1,2 @@
+module CandidatesControllerHelper
+end
