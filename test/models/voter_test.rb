@@ -13,7 +13,7 @@ class VoterTest < ActiveSupport::TestCase
   def test_voter_associations
     julie = Voter.new(name: "Julie", party: "HTT")
     julie.save
-    vote = Vote.new()
+    vote = Vote.new(voter_id: 1, candidate_id: 1)
     vote.save
     julie.votes << vote
     assert julie.reload.votes.include?(vote)

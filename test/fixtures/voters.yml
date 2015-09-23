@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  party: MyString
+  name: David
+  party: HTT
+  token: dcf93c101c14a7c7c0cdbe1be9ae0b09
 
 two:
-  name: MyString
-  party: MyString
+  name: Michelle
+  party: HTT
+  token: 743e5a55dfd9365307b0c63167d99c95
