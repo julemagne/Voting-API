@@ -1,6 +1,6 @@
 class VotesController < ApplicationController
   def index
-    render json: Vote.all.to_json
+    @votes = Vote.all
   end
 
   def show

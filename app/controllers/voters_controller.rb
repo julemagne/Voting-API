@@ -11,11 +11,11 @@ class VotersController < ApplicationController
     # You can type in http://localhost:3000/candidates/show?id=2 for Candidate 2
   end
 
-  def destroy
-    id = params[:id]
-    Voter.find(id).destroy
-    render json: Voter.all.to_json
-  end
+  # def destroy
+  #   id = params[:id]
+  #   Voter.find(id).destroy
+  #   render json: Voter.all.to_json
+  # end
 
   def create
     c = Voter.new(name: params[:name], party: params[:party], token: ApiKey.create.token)

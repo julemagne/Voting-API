@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'votes/index'
-  get 'votes/show'
-
+  #get 'votes/index'
+  resources :votes, only: [:index]
+  
   get 'candidates/index'
   get 'candidates/show'
 
