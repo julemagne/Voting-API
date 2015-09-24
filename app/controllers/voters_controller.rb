@@ -6,7 +6,12 @@ class VotersController < ApplicationController
   # end
 
   def show
-      render json: Voter.find_by(token: params[:token])
+    voter = Voter.find(params[:id])
+    if voter.token == token(params[:token])
+      render json: voter
+    else
+      voter.errors
+    end
     # ActiveRecord find method only takes id
     # You can type in http://localhost:3000/candidates/show?id=2 for Candidate 2
   end
@@ -20,7 +25,7 @@ class VotersController < ApplicationController
   def create
     c = Voter.new(name: params[:name], party: params[:party], token: ApiKey.create.token)
     if c.save
-      render json: c.to_json
+      render json: c
     else
       render json: c.errors
     end
@@ -28,8 +33,14 @@ class VotersController < ApplicationController
 
   def update
     v = Voter.find_by_token(params[:token])
-    v.update(name: params[:name], party: params[:party])
-    render json: v.to_json
+    #v.update(name: params[:name], party: params[:party])
+    v.name = params[:name] if params[:name]
+    v.party = params[:party] if params[:party]
+    if v.save
+      render json: v
+    else
+      render json: v.errors
+    end
   end
 
   private
